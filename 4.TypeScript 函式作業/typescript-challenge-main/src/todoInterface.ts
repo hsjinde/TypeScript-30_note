@@ -22,9 +22,10 @@ interface Todo{
 export function addTodo(todos: Todo[], task: string): Todo[] {
     // 在此實現函式
     const newTodo: Todo = {
-        id: todos.length + 1,
+        id: todos.length + 1, // 使用現有待辦事項數量加 1 作為新的 ID
         task,
-        completed: false
-    }
-    return [...todos, newTodo];
+        completed: false, // 新增的待辦事項預設為未完成
+    };
+    return [...todos, newTodo]; //...todos：這將現有 todos 陣列的所有元素展開到新陣列中。
+
 }

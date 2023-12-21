@@ -8,14 +8,11 @@
  * 輸出: 'The traffic light is Red'
  */
 export enum TrafficLight {
-  Red,
-  Yellow,
-  Green
+  Red = 'Red',
+  Yellow = 'Yellow',
+  Green = 'Green'
 }
-export function getTrafficLightStatus(light) {
-  // 在此實現函式
-  switch(light) {
-    case TrafficLight.Red:
-      return 'The traffic light is Red'
-  }
+
+export function getTrafficLightStatus(light: TrafficLight) {
+      return `The traffic light is ${light}`;
 }

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const people = [
+        {
+          name: "卡斯伯",
+          like: "鍋燒意麵",
+          price: 80,
+        },
+        {
+          name: "小明",
+          like: "牛肉麵",
+          price: 120,
+        },
+        {
+          name: "漂亮阿姨",
+          like: "滷味切盤",
+          price: 40,
+        },
+        {
+          name: "Ray",
+          like: "大麻醬乾麵",
+          price: 60,
+        },
+      ];
+      //1.列印出每個人的訂單
+      people.forEach(function (obj, idx) {
+        console.log(obj, idx);
+      });
+      //2.打8折 a:forEach b:map c:箭頭函式
+      //a:forEach
+      //   const newOrder = [];
+      //   people.forEach(function (obj, idx) {
+      //     newOrder[idx] = {
+      //       ...obj,
+      //       newPrice: obj.price * 0.8,
+      //     };
+      //   });
+      //b:map
+      //   const newOrder = people.map(function (item, idx) {
+      //     return {
+      //         ...item,
+      //         newPrice: item.price *0.8
+      //     }
+      //   });
+      //c:箭頭函式
+      //   const newOrder = people.map((item, idx) => ({
+      //         ...item,
+      //         newPrice: item.price *0.8
+      //   }));
+      //   newOrder[0] = {
+      //     name: "卡斯伯",
+      //     like: "鍋燒意麵",
+      //     price: 80,
+      //     newPrice: 80 * 0.8,
+      //   };
+      //   console.log(newOrder);
+
+      //3.找出80元以上的
+      //    a::forEach
+      //   const newOrder2 = [];
+      //   people.forEach(function (obj, idx) {
+      //     if (obj.price >= 80) {
+      //       //console.log(obj);
+      //       newOrder2.push(obj);
+      //     }
+      //   });
+      //    b:filter
+      //   const newOrder2 = people.filter(function(item, idx) {
+      //     return item.price >= 80;
+      //   })
+      //   console.log(newOrder2);
+      //    c:filter + arrow
+      //   const newOrder2 = people.filter((item) => item.price >= 80);
+      //   console.log(newOrder2);
+      //4.牛肉麵 =>牛肉湯麵
+      //   let index = -1;
+      //   people.forEach(function (obj, idx) {
+      //     if (obj.like === "牛肉麵") {
+      //       index = idx;
+      //     }
+      //   });
+      //   console.log(index);
+      //   people[index].like = "牛肉湯麵";
+      // findindex
+      //   const index = people.findIndex(function (item) {
+      //     return item.like === "牛肉麵";
+      //   });
+      //   people[index].like = "牛肉湯麵";
+      //   console.log(people);
+      //findindex +arrow
+      //   const index = people.findIndex( (item) => item.like === "牛肉麵");
+      //   people[index].like = "牛肉湯麵";
+      //   console.log(people);
+      //5.<li>結構
+      //   let htmlTemplate = "";
+      //   people.forEach(function (obj, key) {
+      //     htmlTemplate += `<li>
+      //         ${obj.like}, ${obj.price}
+      //         </li>`;
+      //   });
+      //   let htmlTemplate = people.map(function (obj, key) {
+      //     return `<li>
+      //           ${obj.like}, ${obj.price}
+      //           </li>`;
+      //   }).join('');
+      //   let htmlTemplate = people.map((obj, key) => `<li>
+      //     ${obj.like}, ${obj.price}
+      //           </li>`).join("");
+      //   console.log(htmlTemplate);
+
+      //6.收錢
+      //       let total = 0;
+      //       people.forEach(function (obj, idx) {
+      //         total += obj.price;
+      //       });
+      //       console.log(total);
+      //
+      //   const total = people.reduce(function(acc, cur){
+      //     console.log(acc);
+      //     return acc+ cur.price;
+      //   }, 0)
+      //   const total = people.reduce((acc, cur) =>acc+ cur.price, 0)
+      
+      //7.排序金額
+      const peopleSort = people.sort((a, b) =>{
+        return a.price - b.price
+      })
+      console.log(peopleSort);
+    </script>
+  </body>
+</html>
